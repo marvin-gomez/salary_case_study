@@ -20,6 +20,14 @@ This dataset comprises 6,704 data points, encompassing key variables such as age
 
 Let's explore the dataset to understand its structure and the relationships between different variables.
 
+|Column #|Column Name|Data Tye|Description|
+|----|---------------|----------|------------------|
+|1 | age | INTEGER | Age of the individual |
+|2 | gender | STRING | Gender of the individual |
+|3 | education_level | STRING | Highest level of education attained |
+|4 | job_title | STRING | Job title or position of the individual |
+|5 | years_of_experience | FLOAT | Years of work experience |
+|6 | salary | INTEGER | Annual salary of the individual |
 
 
 Next, I will use SQL in BigQuery to clean and refine the dataset, addressing inconsistencies, duplicates, and missing values to ensure data integrity and accuracy for analysis.
