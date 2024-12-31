@@ -3,7 +3,7 @@ uncover salary trends and key factors influencing earnings
 
 **Introduction**
 
-In this case study, we analyze a dataset containing information about individuals' salaries, demographics, education levels, job titles, and years of experience to uncover key factors influencing salary trends and potential disparities. By examining the relationships between age, experience, and education, this analysis aims to provide actionable insights for workforce management, career development, and promoting social equity. Understanding these dynamics is critical in today’s data-driven world, where salary information offers valuable insights into economic trends and workforce dynamics.
+In this case study, I will be analyzing a dataset containing information about individuals' salaries, demographics, education levels, job titles, and years of experience to uncover key factors influencing salary trends and potential disparities. By examining the relationships between age, experience, and education, this analysis aims to provide actionable insights for workforce management, career development, and promoting social equity. Understanding these dynamics is critical in today’s data-driven world, where salary information offers valuable insights into economic trends and workforce dynamics.
 
 **Objective**
 
