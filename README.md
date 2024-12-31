@@ -211,3 +211,7 @@ GROUP BY experience_bracket;
 **Analyze & Share**
 
 *visuals and analytics coming soon
+
+In the mean time, find some of the visuals I will be using for this project on tableua [here](https://public.tableau.com/shared/FNT49M7B4?:display_count=n&:origin=viz_share_link)
+
+Happy New Years!
