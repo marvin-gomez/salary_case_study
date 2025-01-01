@@ -256,9 +256,10 @@ This graph compares the average salaries of males and females across the most po
 Now we see the difference in salary between genders across popular job titles, with males generally earning more in most roles, as indicated by positive values. However, a few roles show females earning higher average salaries, highlighted by negative values, emphasizing the variability in gender pay gaps.
 
 **Conclusion**
+
 Analyzing salary data is crucial as it provides valuable insights into economic trends, workforce dynamics, and pay disparities, enabling informed decisions to promote equity, fairness, and career development. Through my research, I conclude these three key findings:
 1. Years of experience, age, and education level are the primary drivers of salary differences, with experience showing the strongest correlation to higher earnings.
-2.Advanced degrees, such as Master’s or PhDs, are closely associated with higher earning potential, while lower education levels generally lead to more limited salary ranges. However, it is rare but possible for individuals with lower education levels to achieve earnings comparable to those with advanced degrees.
+2. Advanced degrees, such as Master’s or PhDs, are closely associated with higher earning potential, while lower education levels generally lead to more limited salary ranges. However, it is rare but possible for individuals with lower education levels to achieve earnings comparable to those with advanced degrees.
 3. Males consistently earn more than females across most education levels, though this may be influenced by differences in experience and age. The greater pay discrepancy appears in job selection, with males earning more in higher-paying STEM roles, while females excel in certain non-STEM positions.
 
 
