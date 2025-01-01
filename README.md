@@ -133,9 +133,14 @@ WHERE salary < 1000
 CREATE TABLE 'salary_annual_cleaned' AS
 SELECT *
 FROM salary_annual
+```
 
---Use statistical analysis
+**Analyze & Share**
 
+By utilizing SQL for detailed data analysis and Tableau for visualizations, I uncovered valuable insights into salary trends driven by education, experience, and gender.
+
+Here is the correlation between salary and key factors such as education, experience, and age using SQL for statistical calculations.
+```SQL
 --Measure the linear relationship between each variable and salary to identify influencing factors to salary
 SELECT 
   ROUND(CORR(years_of_experience, salary), 2) AS experience_salary_corr,
@@ -149,98 +154,42 @@ SELECT
       ELSE NULL
     END, salary),2) AS education_salary_corr
 FROM salary_annual;
+```
+| experience_salary_corr | age_salary_corr | education_salary_corr|
+|---------------|---------------|---------------|
+| 0.81 | 0.73 | 0.52|
 
+![](https://github.com/marvin-gomez/salary_case_study/blob/5bb24054180f36b127e9b6452bb6760f882101cb/Data%20Visuals/Plot%20Age%20to%20salary.png)
+
+![](https://github.com/marvin-gomez/salary_case_study/blob/5bb24054180f36b127e9b6452bb6760f882101cb/Data%20Visuals/Plot%20Yrs%20Exp%20to%20salary.png)
+
+Experience and age show the strongest correlation to salary, as highlighted in these scatter plot graphs with linear trendlines, illustrating how earnings increase predictably with greater experience and age.
+
+The distribution of salaries across different education levels highlights how earning potential varies with educational attainment.
+
+```SQL
 --Salary Average, Min, Max and STDDEV distribution by Education Level
 SELECT education_level,
   AVG(salary) AS avg_salary,
   MIN(salary) AS min_salary,
   MAX(salary) AS max_salary,
   STDDEV(salary) AS salary_std_dev
-FROM salary_annual
+FROM daprojects-2025.salary_data.salary_annual
 GROUP BY education_level
 ORDER BY avg_salary DESC;
-
---Salary Average, Min, Max and STDDEV distribution by job_title
-SELECT job_title, 
-  AVG(salary) AS avg_salary,
-  MIN(salary) AS min_salary,
-  MAX(salary) AS max_salary,
-  STDDEV(salary) AS salary_std_dev
-FROM salary_annual
-GROUP BY job_title
-ORDER BY avg_salary DESC;
-
---Average salary differences between genders
-SELECT 
-  gender, 
-  AVG(salary) AS avg_salary, 
-  COUNT(*) AS count
-FROM salary_annual
-GROUP BY gender
-ORDER BY avg_salary DESC;
-
---Average salary for each job_title by gender 
-SELECT 
-  job_title,
-  AVG(CASE WHEN gender = 'Male' THEN salary ELSE NULL END) AS avg_salary_male,
-  COUNT(CASE WHEN gender = 'Male' THEN 1 ELSE NULL END) AS count_male,
-  AVG(CASE WHEN gender = 'Female' THEN salary ELSE NULL END) AS avg_salary_female,
-  COUNT(CASE WHEN gender = 'Female' THEN 1 ELSE NULL END) AS count_female
-FROM salary_annual
-GROUP BY job_title
-ORDER BY job_title, avg_salary DESC;
-
---Average salary for each education_level and years_of_experience by gender 
-SELECT 
-  education_level,
-  ROUND(AVG(CASE WHEN gender = 'Male' THEN salary ELSE NULL END),2) AS avg_salary_male,
-  ROUND(AVG(CASE WHEN gender = 'Male' THEN years_of_experience ELSE NULL END),2) AS avg_experience_male,
-  COUNT(CASE WHEN gender = 'Male' THEN 1 ELSE NULL END) AS count_male,
-  ROUND(AVG(CASE WHEN gender = 'Female' THEN salary ELSE NULL END),2) AS avg_salary_female,
-  ROUND(AVG(CASE WHEN gender = 'Female' THEN years_of_experience ELSE NULL END),2) AS avg_experience_female,
-  COUNT(CASE WHEN gender = 'Female' THEN 1 ELSE NULL END) AS count_female
-FROM salary_annual
-GROUP BY education_level
-ORDER BY education_level, avg_salary DESC;
-
---Average salary by years_of_experience brackets
-SELECT 
-  CASE 
-    WHEN years_of_experience < 5 THEN '0-4 years'
-    WHEN years_of_experience BETWEEN 5 AND 10 THEN '5-10 years'
-    WHEN years_of_experience BETWEEN 11 AND 20 THEN '11-20 years'
-    ELSE '21+ years'
-  END AS experience_bracket,
-  AVG(salary) AS avg_salary
-FROM salary_annual
-GROUP BY experience_bracket;
 ```
+| Column Name | education_level | avg_salary | min_salary | max_salary | salary_std_dev |
+|-------------|-------------|-------------|-------------|-------------|-------------|
+| High School | 34415.61 | 25000 | 165919 | 16563.41 |
+| Bachelor's Degree | 95176.96 | 30000 | 250000 | 44012.59 |
+| Master's Degree | 130078.38 | 32000 | 228000 | 40649.72 |
+| PhD | 165772.13 | 30000 | 250000 | 34060.72 |
 
-**Analyze & Share**
 
-By utilizing SQL for detailed data analysis and Tableau for visualizations, I uncovered valuable insights into salary trends driven by education, experience, and gender.
 
-Here is the correlation between salary and key factors such as education, experience, and age using SQL for statistical calculations.
-```SQL
-SELECT 
-  ROUND(CORR(years_of_experience, salary), 2) AS experience_salary_corr,
-  ROUND(CORR(age, salary), 2) AS age_salary_corr,
-  ROUND(CORR(
-    CASE 
-      WHEN education_level = 'High School' THEN 1
-      WHEN education_level = "Bachelor's Degree" THEN 2
-      WHEN education_level = "Master's Degree" THEN 3
-      WHEN education_level = 'Phd' THEN 4
-      ELSE NULL
-    END, salary),2) AS education_salary_corr
-FROM salary_annual;
-```
-*chart matrix\
-*Graph
+![image](https://github.com/user-attachments/assets/6a0c8fc3-497d-43c3-8024-6c27594009b7)
 
-Experience and age show the strongest correlation to salary, as highlighted in these scatter plot graphs with linear trendlines, illustrating how earnings increase predictably with greater experience and age.
 
-The distribution of salaries across different education levels highlights how earning potential varies with educational attainment.
 
 *SQL\
 *chart matrix\
