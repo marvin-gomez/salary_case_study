@@ -232,9 +232,30 @@ ORDER BY education_level, avg_salary DESC;
 
 ![](https://github.com/marvin-gomez/salary_case_study/blob/1874bb13627aeaffaf30bdcf68013bd14e3de825/Data%20Visuals/Bar%20Gender%20salary%20at%20age%20and%20exp.png)
 
-This chart illustrates that age and years of experience contribute to higher salaries, which may explain why males tend to earn more than females at the same education level, as seen in the previous chart. The trend suggests that males might have, on average, slightly more experience and age within each education category, contributing to the observed salary disparities.
+This graph illustrates that age and years of experience contribute to higher salaries, which may explain why males tend to earn more than females at the same education level, as seen in the previous chart. The trend suggests that males might have, on average, slightly more experience and age within each education category, contributing to the observed salary disparities.
 
+Diving deeper to gender discrepancies among job titles to uncover how roles and responsibilities contribute to salary differences between males and females.
+```SQL
+--Average salary for each job_title by gender 
+SELECT 
+  job_title,
+  AVG(CASE WHEN gender = 'Male' THEN salary ELSE NULL END) AS avg_salary_male,
+  COUNT(CASE WHEN gender = 'Male' THEN 1 ELSE NULL END) AS count_male,
+  AVG(CASE WHEN gender = 'Female' THEN salary ELSE NULL END) AS avg_salary_female,
+  COUNT(CASE WHEN gender = 'Female' THEN 1 ELSE NULL END) AS count_female
+FROM daprojects-2025.salary_data.salary_annual
+GROUP BY job_title
+ORDER BY job_title, avg_salary DESC;
+```
+![image](https://github.com/user-attachments/assets/0fd1e3fd-5607-498e-9812-d2c788bcb596)
 
+![](https://github.com/marvin-gomez/salary_case_study/blob/4f3496fe140c94ecf4be00adfbb11a9df972e2f6/Data%20Visuals/Bar%20salary%20avg%20jobs.png)
+This graph compares the average salaries of males and females across the most poular job titles.
+
+![](https://github.com/marvin-gomez/salary_case_study/blob/4f3496fe140c94ecf4be00adfbb11a9df972e2f6/Data%20Visuals/Bar%20salary%20avg%20jobs%20dif.png)
+Now we see the difference in salary between genders across popular job titles, with males generally earning more in most roles, as indicated by positive values. However, a few roles show females earning higher average salaries, highlighted by negative values, emphasizing the variability in gender pay gaps.
+
+**Conclusion**
 
 
 
