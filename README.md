@@ -181,6 +181,20 @@ ORDER BY avg_salary DESC;
 
 This box plot shows how salaries vary across education levels, with higher degrees like Master's and PhDs leading to higher median salaries and broader ranges. However, some outliers from lower education levels, such as High School or Bachelor's, still earn as much as individuals with advanced degrees, highlighting unique exceptions.
 
+Discrepancies in salaries between genders, with a focus on how earnings differ based on education levels, experience, and job types.
+```SQL
+--Average salary differences between genders
+SELECT 
+  gender, 
+  AVG(salary) AS avg_salary, 
+  COUNT(*) AS count
+FROM daprojects-2025.salary_data.salary_annual
+GROUP BY gender
+ORDER BY avg_salary DESC;
+```
+![image](https://github.com/user-attachments/assets/26d06f7e-8a6e-44ef-bb1f-3fcc57fbfb05)
+
+
 
 
 
