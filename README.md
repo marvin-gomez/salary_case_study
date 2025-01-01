@@ -160,6 +160,20 @@ FROM salary_annual;
 ![](https://github.com/marvin-gomez/salary_case_study/blob/5bb24054180f36b127e9b6452bb6760f882101cb/Data%20Visuals/Plot%20Age%20to%20salary.png)
 
 ![](https://github.com/marvin-gomez/salary_case_study/blob/5bb24054180f36b127e9b6452bb6760f882101cb/Data%20Visuals/Plot%20Yrs%20Exp%20to%20salary.png)
+```SQL
+--Average salary by years_of_experience brackets
+SELECT 
+  CASE 
+    WHEN years_of_experience < 5 THEN '0-4 years'
+    WHEN years_of_experience BETWEEN 5 AND 10 THEN '5-10 years'
+    WHEN years_of_experience BETWEEN 11 AND 20 THEN '11-20 years'
+    ELSE '21+ years'
+  END AS experience_bracket,
+  AVG(salary) AS avg_salary
+FROM daprojects-2025.salary_data.salary_annual
+GROUP BY experience_bracket;
+```
+![image](https://github.com/user-attachments/assets/48e0c4df-1071-4ab5-b1be-a1bcd6afc51d)
 
 Experience and age show the strongest correlation to salary, as highlighted in these scatter plot graphs with linear trendlines, illustrating how earnings increase predictably with greater experience and age.
 
