@@ -155,9 +155,7 @@ SELECT
     END, salary),2) AS education_salary_corr
 FROM salary_annual;
 ```
-| experience_salary_corr | age_salary_corr | education_salary_corr|
-|---------------|---------------|---------------|
-| 0.81 | 0.73 | 0.52|
+![image](https://github.com/user-attachments/assets/d20ffd30-2e97-4ffc-b380-14fe3cded9a9)
 
 ![](https://github.com/marvin-gomez/salary_case_study/blob/5bb24054180f36b127e9b6452bb6760f882101cb/Data%20Visuals/Plot%20Age%20to%20salary.png)
 
@@ -166,7 +164,6 @@ FROM salary_annual;
 Experience and age show the strongest correlation to salary, as highlighted in these scatter plot graphs with linear trendlines, illustrating how earnings increase predictably with greater experience and age.
 
 The distribution of salaries across different education levels highlights how earning potential varies with educational attainment.
-
 ```SQL
 --Salary Average, Min, Max and STDDEV distribution by Education Level
 SELECT education_level,
@@ -178,22 +175,9 @@ FROM daprojects-2025.salary_data.salary_annual
 GROUP BY education_level
 ORDER BY avg_salary DESC;
 ```
-| Column Name | education_level | avg_salary | min_salary | max_salary | salary_std_dev |
-|-------------|-------------|-------------|-------------|-------------|-------------|
-| High School | 34415.61 | 25000 | 165919 | 16563.41 |
-| Bachelor's Degree | 95176.96 | 30000 | 250000 | 44012.59 |
-| Master's Degree | 130078.38 | 32000 | 228000 | 40649.72 |
-| PhD | 165772.13 | 30000 | 250000 | 34060.72 |
-
-
-
 ![image](https://github.com/user-attachments/assets/6a0c8fc3-497d-43c3-8024-6c27594009b7)
 
-
-
-*SQL\
-*chart matrix\
-*Graph
+![](https://github.com/marvin-gomez/salary_case_study/blob/4a8afaccf147e6f252c58e67c1f37d9d525ac579/Data%20Visuals/BoxPlot%20salary%20at%20edu.png)
 
 This box plot shows how salaries vary across education levels, with higher degrees like Master's and PhDs leading to higher median salaries and broader ranges. However, some outliers from lower education levels, such as High School or Bachelor's, still earn as much as individuals with advanced degrees, highlighting unique exceptions.
 
