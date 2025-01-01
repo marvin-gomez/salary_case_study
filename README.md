@@ -130,7 +130,7 @@ DELETE FROM salary_annual
 WHERE salary < 1000
 
 --Reveiw, verify data and export clean sheet
-CREATE TABLE salary_annual_cleaned AS
+CREATE TABLE 'salary_annual_cleaned' AS
 SELECT *
 FROM salary_annual
 
