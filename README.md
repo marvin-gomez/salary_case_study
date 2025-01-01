@@ -218,8 +218,37 @@ GROUP BY experience_bracket;
 
 **Analyze & Share**
 
-*visuals and analytics coming soon
+By utilizing SQL for detailed data analysis and Tableau for visualizations, I uncovered valuable insights into salary trends driven by education, experience, and gender.
 
-In the mean time, find some of the visuals I will be using for this project on tableua [here](https://public.tableau.com/shared/FNT49M7B4?:display_count=n&:origin=viz_share_link)
+Here is the correlation between salary and key factors such as education, experience, and age using SQL for statistical calculations.
+```SQL
+SELECT 
+  ROUND(CORR(years_of_experience, salary), 2) AS experience_salary_corr,
+  ROUND(CORR(age, salary), 2) AS age_salary_corr,
+  ROUND(CORR(
+    CASE 
+      WHEN education_level = 'High School' THEN 1
+      WHEN education_level = "Bachelor's Degree" THEN 2
+      WHEN education_level = "Master's Degree" THEN 3
+      WHEN education_level = 'Phd' THEN 4
+      ELSE NULL
+    END, salary),2) AS education_salary_corr
+FROM salary_annual;
+```
+*chart matrix\
+*Graph
 
-Happy New Years!
+Experience and age show the strongest correlation to salary, as highlighted in these scatter plot graphs with linear trendlines, illustrating how earnings increase predictably with greater experience and age.
+
+The distribution of salaries across different education levels highlights how earning potential varies with educational attainment.
+
+*SQL\
+*chart matrix\
+*Graph
+
+This box plot shows how salaries vary across education levels, with higher degrees like Master's and PhDs leading to higher median salaries and broader ranges. However, some outliers from lower education levels, such as High School or Bachelor's, still earn as much as individuals with advanced degrees, highlighting unique exceptions.
+
+
+
+
+
