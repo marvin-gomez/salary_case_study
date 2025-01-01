@@ -125,6 +125,15 @@ WHERE age < 18 OR age > 65
   OR years_of_experience > age
   OR salary < 0;
 
+--Delete rows where salary is less than 1000 annually
+DELETE FROM salary_annual
+WHERE salary < 1000
+
+--Reveiw, verify data and export clean sheet
+CREATE TABLE salary_annual_cleaned AS
+SELECT *
+FROM salary_annual
+
 --Use statistical analysis
 
 --Measure the linear relationship between each variable and salary to identify influencing factors to salary
