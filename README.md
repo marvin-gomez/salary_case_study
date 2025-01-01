@@ -194,6 +194,31 @@ ORDER BY avg_salary DESC;
 ```
 ![image](https://github.com/user-attachments/assets/26d06f7e-8a6e-44ef-bb1f-3fcc57fbfb05)
 
+![](https://github.com/marvin-gomez/salary_case_study/blob/1874bb13627aeaffaf30bdcf68013bd14e3de825/Data%20Visuals/Bar%20Gender%20salary%20at%20edu.png)
+
+Despite similar educational attainment, this graph reveals a gender salary discrepancy, with males consistently earning higher average salaries than females across all education levels.
+
+Diving deeper, I need to analyze how other variables, such as experience and job type, contribute to these gender salary discrepancies.
+```SQL
+SELECT 
+  education_level,
+  ROUND(AVG(CASE WHEN gender = 'Male' THEN salary ELSE NULL END),2) AS avg_salary_male,
+  ROUND(AVG(CASE WHEN gender = 'Male' THEN years_of_experience ELSE NULL END),2) AS avg_experience_male,
+  ROUND(AVG(CASE WHEN gender = 'Male' THEN age ELSE NULL END),2) AS avg_age_male,
+  COUNT(CASE WHEN gender = 'Male' THEN 1 ELSE NULL END) AS count_male,
+  ROUND(AVG(CASE WHEN gender = 'Female' THEN salary ELSE NULL END),2) AS avg_salary_female,
+  ROUND(AVG(CASE WHEN gender = 'Female' THEN years_of_experience ELSE NULL END),2) AS avg_experience_female,
+  ROUND(AVG(CASE WHEN gender = 'Female' THEN age ELSE NULL END),2) AS avg_age_female,
+  COUNT(CASE WHEN gender = 'Female' THEN 1 ELSE NULL END) AS count_female
+FROM daprojects-2025.salary_data.salary_annual
+GROUP BY education_level
+ORDER BY education_level, avg_salary DESC;
+```
+![image](https://github.com/user-attachments/assets/b8eeff5b-415b-4e9f-bf13-6667d49044d8)
+
+![](https://github.com/marvin-gomez/salary_case_study/blob/1874bb13627aeaffaf30bdcf68013bd14e3de825/Data%20Visuals/Bar%20Gender%20salary%20at%20age%20and%20exp.png)
+
+This chart illustrates that age and years of experience contribute to higher salaries, which may explain why males tend to earn more than females at the same education level, as seen in the previous chart. The trend suggests that males might have, on average, slightly more experience and age within each education category, contributing to the observed salary disparities.
 
 
 
