@@ -125,7 +125,7 @@ WHERE age < 18 OR age > 65
   OR years_of_experience > age
   OR salary < 0;
 
---Delete rows where salary is less than 1000 annually
+--Delete Outliers, rows where salary is less than 1000 annually
 DELETE FROM salary_annual
 WHERE salary < 1000
 
